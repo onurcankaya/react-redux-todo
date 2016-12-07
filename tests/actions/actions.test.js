@@ -35,8 +35,7 @@ describe('Actions', () => {
     let action = {
       type: 'TOGGLE_TODO',
       id: 2
-    }
-
+    };
     let res = toggleTodo(action.id);
 
     expect(res).toEqual(action);
