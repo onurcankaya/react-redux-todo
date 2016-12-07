@@ -44,7 +44,7 @@ module.exports = {
       './src/api'
     ],
     alias: {
-
+      actions: 'src/actions/actions.js'
     },
     extensions: ['', '.js', '.jsx']
   },
