@@ -45,7 +45,7 @@ export default class TodoApp extends Component {
   }
 
   handleToggle(id) {
-    let updatedTodos = this.state.todos.map((todo) => {
+    const updatedTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
         todo.completed = !todo.completed;
         todo.completedAt = todo.completed ? moment().unix() : null;
@@ -59,8 +59,8 @@ export default class TodoApp extends Component {
   }
 
   render() {
-    let {todos, showCompleted, searchText} = this.state;
-    let filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
+    const {todos, showCompleted, searchText} = this.state;
+    const filteredTodos = TodoAPI.filterTodos(todos, showCompleted, searchText);
 
     return (
       <div>
