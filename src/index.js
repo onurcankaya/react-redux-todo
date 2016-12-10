@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import TodoApp from 'TodoApp';
@@ -14,7 +15,7 @@ store.subscribe(() => {
 
 store.dispatch(addTodo('Clean the kitchen'));
 store.dispatch(setSearchText('kitchen'));
-store.dispatch(toggleShowCompleted(true));
+store.dispatch(toggleShowCompleted());
 
 // Load foundation
 $(document).foundation();
@@ -23,10 +24,8 @@ $(document).foundation();
 import css from 'style!css!sass!applicationStyles';
 
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path='/' component={TodoApp}>
-
-    </Route>
-  </Router>,
+  <Provider store={store}>
+    <TodoApp/>
+  </Provider>,
   document.getElementById('app')
 );

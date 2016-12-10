@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { toggleTodo } from 'actions';
 import moment from 'moment';
 
-export default class Todo extends Component {
+class Todo extends Component {
   render() {
-    let {id, text, completed, createdAt, completedAt} = this.props;
+    let { id, text, completed, createdAt, completedAt, dispatch } = this.props;
     let todoClassName = completed ? 'todo todo-completed' : 'todo';
     let renderDate = () => {
-      let message = 'Created ~ ';
+      let message = 'Created ';
       let timeStamp = createdAt;
 
       if (completed) {
-        message = 'Completed ~ ';
+        message = 'Completed ';
         timeStamp = completedAt;
       }
 
@@ -19,16 +21,19 @@ export default class Todo extends Component {
 
     return (
       <div className={todoClassName} onClick={() => {
-          this.props.onToggle(id)
+          dispatch(toggleTodo(id));
         }}>
+
         <div>
           <input type="checkbox" defaultChecked={completed} />
         </div>
         <div>
           <p>{text}</p>
-          <p className="todo__subtext">{renderDate()}</p>          
+          <p className="todo__subtext">{renderDate()}</p>
         </div>
       </div>
     );
   }
 }
+
+export default connect()(Todo);
