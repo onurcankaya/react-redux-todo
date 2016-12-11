@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { toggleTodo } from 'actions';
 import moment from 'moment';
 
-class Todo extends Component {
+export class Todo extends Component {
   render() {
     let { id, text, completed, createdAt, completedAt, dispatch } = this.props;
     let todoClassName = completed ? 'todo todo-completed' : 'todo';
