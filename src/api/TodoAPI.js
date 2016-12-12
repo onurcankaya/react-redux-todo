@@ -6,7 +6,7 @@ module.exports = {
     }
   },
   getTodos: () => {
-    let stringTodos = localStorage.getItem('todos');
+    const stringTodos = localStorage.getItem('todos');
     let todos = [];
 
     try {
@@ -27,7 +27,7 @@ module.exports = {
 
     // Filter by searchText
     filteredTodos = filteredTodos.filter((todo) => {
-      let text = todo.text.toLowerCase();
+      const text = todo.text.toLowerCase();
 
       return searchText.length === 0 || text.indexOf(searchText) > -1;
     });

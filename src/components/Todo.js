@@ -5,9 +5,9 @@ import moment from 'moment';
 
 export class Todo extends Component {
   render() {
-    let { id, text, completed, createdAt, completedAt, dispatch } = this.props;
-    let todoClassName = completed ? 'todo todo-completed' : 'todo';
-    let renderDate = () => {
+    const { id, text, completed, createdAt, completedAt, dispatch } = this.props;
+    const todoClassName = completed ? 'todo todo-completed' : 'todo';
+    const renderDate = () => {
       let message = 'Created ';
       let timeStamp = createdAt;
 
