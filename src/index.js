@@ -8,6 +8,8 @@ import { setSearchText, addTodo, addTodos, toggleShowCompleted, toggleTodo } fro
 const store = require('configureStore').configure();
 const TodoAPI = require('TodoAPI');
 
+import './../playground/firebase/index';
+
 
 store.subscribe(() => {
   const state = store.getState();
